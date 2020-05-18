@@ -45,7 +45,7 @@ const PrescriptionModal = (props) => {
         console.log(infoValue.allBookedAppointments);
         //Database Update
         const data ={id:props.selectedAppointment._id, prescription:updatePrescription} 
-        fetch('http://localhost:4200/updatePrescription',{
+        fetch('https://doctors-portal-sabbir.herokuapp.com/updatePrescription',{
             method:"POST",
             body:JSON.stringify(data),
             headers : {

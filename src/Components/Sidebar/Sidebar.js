@@ -34,7 +34,7 @@ const Sidebar = () => {
                     </Link>
                 </li>
                 <li>
-                    <Link to="/doctor/dashboard" className="text-white">
+                    <Link to="/doctor/prescription" className="text-white">
                         <FontAwesomeIcon icon={faFileAlt}></FontAwesomeIcon>
                         <span className="d-none d-md-block">Prescription</span>
                     </Link>

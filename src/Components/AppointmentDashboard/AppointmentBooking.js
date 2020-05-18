@@ -10,6 +10,7 @@ import { useForm } from 'react-hook-form';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import AppointmentCard from './AppointmentCard';
+import Preloader from '../Preloader/Preloader';
 
 const AppointmentBooking = () => {
     
@@ -46,7 +47,7 @@ const AppointmentBooking = () => {
         const appointmentId = selectedAppointment.id;
         const time = selectedAppointment.visitingHour;
         const storeDB = {appointmentId,time,date,patientInfo,status:"Pending"}
-        fetch("http://localhost:4200/placeBooking",{
+        fetch("https://doctors-portal-sabbir.herokuapp.com/placeBooking",{
             method:"POST",
             body:JSON.stringify(storeDB),
             headers : {
@@ -70,7 +71,10 @@ const AppointmentBooking = () => {
         <div className="container mt-5 py-5">
             <h3 className="text-primary text-center my-5">Available Appointment On {date}</h3>
             <div className="row">
-                {/* Preloader */}
+                {
+                    infoData.preloaderVisibility &&
+                    <Preloader></Preloader>
+                }
                 {
                     infoData &&
                     infoData.allAppointments.map(appointment=><AppointmentCard key={appointment.id} appointment={appointment} modalController={modalController}></AppointmentCard>)

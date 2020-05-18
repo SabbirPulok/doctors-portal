@@ -19,7 +19,7 @@ const AppointmentDataTable = () => {
         infoData.setAllBookedAppointments(allBookedApp);
 
         const data = {id:selectedAppointment._id,visitingStatus}
-        fetch('http://localhost:4200/updateVisitingStatus',{
+        fetch('https://doctors-portal-sabbir.herokuapp.com/updateVisitingStatus',{
             method:"POST",
             body: JSON.stringify(data),
             headers : {

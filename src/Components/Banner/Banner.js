@@ -9,7 +9,7 @@ const Banner = () => {
 
     // const handleInsertAppointment =()=>{
     //     console.log(appointments)
-    //     fetch("http://localhost:4200/addAppointments",{
+    //     fetch("https://doctors-portal-sabbir.herokuapp.com/addAppointments",{
     //         method:"POST",
     //         body:JSON.stringify(appointments),
     //         headers : {

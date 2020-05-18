@@ -9,6 +9,8 @@ import { useEffect } from 'react';
 import Dashboard from './Components/Dashboard/Dashboard';
 import Patients from './Components/Patients/Patients';
 import Appointments from './Components/Appointments/Appointments';
+import Prescription from './Components/Prescription/Prescription';
+import NotFound from './Components/NotFound/NotFound';
 export const CalenderContext = createContext();
 export const InfoContext = createContext();
 
@@ -18,15 +20,19 @@ function App() {
   const [allAppointments,setAllAppointments] = useState([]);
   const [allBookedAppointments,setAllBookedAppointments] = useState([]);
   const [allPatients,setAllPatients] = useState([]);
+  const [preloaderVisibility, setPreloaderVisibility] = useState(true);
 
   useEffect(()=>{
-    fetch('http://localhost:4200/appointments')
+    fetch('https://doctors-portal-sabbir.herokuapp.com/appointments')
     .then(res=>res.json())
-    .then(data=>setAllAppointments(data))
+    .then(data=>{
+      setAllAppointments(data);
+      setPreloaderVisibility(false);
+    })
   },[allAppointments.length])
 
   useEffect(()=>{
-    fetch("http://localhost:4200/bookedAppointments")
+    fetch("https://doctors-portal-sabbir.herokuapp.com/bookedAppointments")
       .then(res => res.json())
       .then(data => {
         setAllBookedAppointments(data);
@@ -36,7 +42,7 @@ function App() {
   }, [allBookedAppointments.length])
 
   const calenderContextValue = {date,setDate};
-  const infoContextValue = {allAppointments,setAllAppointments,allBookedAppointments,setAllBookedAppointments,allPatients}
+  const infoContextValue = {allAppointments,setAllAppointments,allBookedAppointments,setAllBookedAppointments,allPatients,preloaderVisibility};
   //console.log(infoContextValue);
   return (
     <CalenderContext.Provider value = {calenderContextValue}>
@@ -57,6 +63,12 @@ function App() {
             </Route> 
             <Route path="/doctor/patients">
               <Patients></Patients>
+            </Route>
+            <Route path="/doctor/prescription">
+                <Prescription></Prescription>
+            </Route>
+            <Route path="*">
+                <NotFound></NotFound>
             </Route>
           </Switch>
         </Router>

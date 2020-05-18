@@ -22,7 +22,7 @@ const DashboardAppointmentDataTable = () => {
 
         //db update
         const data = {id:selectedAppointment._id, status};
-        fetch('http://localhost:4200/updateBookingStatus',{
+        fetch('https://doctors-portal-sabbir.herokuapp.com/updateBookingStatus',{
             method:"POST",
             body:JSON.stringify(data),
             headers : {

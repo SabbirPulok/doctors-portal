@@ -1,6 +1,7 @@
 import React, {useContext} from 'react';
 import './DataTable.css';
 import { InfoContext } from '../../App';
+import Preloader from '../Preloader/Preloader';
 
 const DataTable = (props) => {
     const infoData = useContext(InfoContext);
@@ -11,6 +12,10 @@ const DataTable = (props) => {
             </div>
             {
                 props.children
+            }
+            {
+                infoData.preloaderVisibility &&
+                    <Preloader></Preloader>
             }
         </div>
     );

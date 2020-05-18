@@ -26,9 +26,6 @@ const Outcome = () => {
 
     return (
         <div className="row my-5">
-            {/* <h1>Total: {totalBooking}</h1>
-            <h1>Pending: {pendingAppointment}</h1>
-            <h1>Today's : {todayAppointments}</h1> */}
             <SingleOutcome bgColor="bg-danger" value={{title:"Pending Appointments", count:pendingAppointment}}></SingleOutcome>
             <SingleOutcome bgColor="bg-info" value={{title:"Today's Appointments", count:todayAppointments}}></SingleOutcome>
             <SingleOutcome bgColor="bg-success" value={{title:"Total Appointments", count:totalAppointments}}></SingleOutcome>

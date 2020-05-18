@@ -2,7 +2,7 @@ import React from 'react';
 import Sidebar from '../Sidebar/Sidebar';
 import Outcome from './Outcome/Outcome';
 import DataTable from '../DataTable/DataTable';
-import AppointmentDataTable from '../DataTable/AppointmentDataTable';
+import DashboardAppointmentDataTable from '../DataTable/DashboardAppointmentDataTable';
 
 const Dashboard = () => {
     return (
@@ -13,7 +13,7 @@ const Dashboard = () => {
                     <h5>Dashboard</h5>
                     <Outcome></Outcome>
                     <DataTable tableName="Recent Appointments">
-                        <AppointmentDataTable></AppointmentDataTable>
+                        <DashboardAppointmentDataTable></DashboardAppointmentDataTable>
                     </DataTable>
                 </div>
             </div>

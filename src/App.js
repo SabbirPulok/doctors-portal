@@ -2,11 +2,13 @@ import React from 'react';
 import { BrowserRouter as Router, Route,Switch } from 'react-router-dom';
 import './App.css';
 import Home from './Components/Home/Home';
-import Appointment from './Components/Appointment/Appointment';
+import AppointmentDashboard from './Components/AppointmentDashboard/AppointmentDashboard';
 import { createContext } from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import Dashboard from './Components/Dashboard/Dashboard';
+import Patients from './Components/Patients/Patients';
+import Appointments from './Components/Appointments/Appointments';
 export const CalenderContext = createContext();
 export const InfoContext = createContext();
 
@@ -31,7 +33,7 @@ function App() {
       });
       const patient = allBookedAppointments.map(app=>app.patientInfo);
       setAllPatients(patient);
-  },[allBookedAppointments])
+  }, [allBookedAppointments.length])
 
   const calenderContextValue = {date,setDate};
   const infoContextValue = {allAppointments,setAllAppointments,allBookedAppointments,setAllBookedAppointments,allPatients}
@@ -45,10 +47,16 @@ function App() {
               <Home></Home>
             </Route>
             <Route path="/appointment">
-              <Appointment></Appointment>
+              <AppointmentDashboard></AppointmentDashboard>
             </Route>
             <Route path="/doctor/dashboard">
                 <Dashboard></Dashboard>
+            </Route>
+            <Route path="/doctor/appointment-list">
+              <Appointments></Appointments>
+            </Route> 
+            <Route path="/doctor/patients">
+              <Patients></Patients>
             </Route>
           </Switch>
         </Router>

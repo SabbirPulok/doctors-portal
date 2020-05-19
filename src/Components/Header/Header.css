@@ -10,3 +10,8 @@
 {
     padding-left: 2.2rem;
 }
+.navbar-brand img
+{
+    height:40%;
+    width:45%;
+}

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './Header.css';
 import { useState } from 'react';
 import { useEffect } from 'react';
+// import icon from '../../images/doctorPortal.png';
 
 const Header = () => {
     const [isSticky,setIsSticky] = useState(false);
@@ -23,7 +24,10 @@ const Header = () => {
     return (
         <nav className={(isSticky) ?"shadow-sm navbar navbar-expand-sm navbar-light bg-white py-3 fixed-top":"navbar navbar-expand-sm navbar-light py-4 fixed-top"}>
             <div className="container">
-                <Link className="navbar-brand" to="/">Doctor's <strong>Portal</strong></Link>
+                <Link className="navbar-brand" to="/">
+                    {/* <img src={icon} alt=""/> */}
+                    Doctor's <strong>Portal</strong>
+                </Link>
                 <button onClick={()=>setIsCollapse(!isCollapse && 'show')} className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>

@@ -57,7 +57,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className="copyRight text-center">
-                    <p>Copyright 2020 All Rights Reserved</p>
+                    <p>Developed By <strong>Sabbir Pulok</strong></p>
                 </div>
             </div>
         </footer>
